@@ -3,6 +3,16 @@ from tkinter import filedialog, messagebox
 import sqlite3
 import pandas as pd
 
+# This section is related to the PyInstaller .exe generation
+import sys, os
+def resource(relative_path):
+    base_path = getattr(
+        sys,
+        '_MEIPASS',
+        os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+# ----------------------------------------------------------
+
 def browse_db_file():
     filename = filedialog.askopenfilename(
         title="Select SQLite Database File",
@@ -49,10 +59,11 @@ def generate_csv():
         messagebox.showerror("Error", f"An error occurred: {e}")
 
 # Set up the main window
+icon = resource("zeit.ico")
 root = tk.Tk()
 root.title("SQLite to CSV Converter - By @Zeitgeist195")
 root.resizable(width=False, height=False)
-root.iconbitmap("zeit.ico")
+root.iconbitmap(icon)
 
 # Define tkinter variables
 db_file_path = tk.StringVar()
