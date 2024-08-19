@@ -52,7 +52,7 @@ def generate_csv():
 root = tk.Tk()
 root.title("SQLite to CSV Converter - By @Zeitgeist195")
 root.resizable(width=False, height=False)
-root.iconbitmap("icon/zeit.ico")
+root.iconbitmap("zeit.ico")
 
 # Define tkinter variables
 db_file_path = tk.StringVar()
